@@ -1,0 +1,29 @@
+UID Generation, /dev/urandom
+
+Run with
+
+> jmh:run -t max -o srun -jvmArgs -Djava.security.egd=file:/dev/./urandom
+
+
+# Run complete. Total time: 01:48:42
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark               Mode  Cnt        Score        Error  Units
+Perf.uid1              thrpt   25  4060491.012 ±  25137.179  ops/s
+Perf.uid1Fixed         thrpt   25  4020014.760 ±   6727.542  ops/s
+Perf.uid1FixedSleep    thrpt   25  3661901.846 ± 246939.362  ops/s
+Perf.uid2              thrpt   25   525367.457 ±  26184.180  ops/s
+Perf.uid2LsdSync       thrpt   25  4053214.189 ±  27359.030  ops/s
+Perf.uid2MinSynchro    thrpt   25  4076013.349 ±   6695.709  ops/s
+Perf.uid2Nano          thrpt   25   520183.329 ±  26082.300  ops/s
+Perf.uid2RndFirst      thrpt   25   507910.856 ±  24471.792  ops/s
+Perf.uid2RndFirstNano  thrpt   25   489387.131 ±  19453.297  ops/s
+Perf.uid2Ssr           thrpt   25   556310.772 ±  10291.979  ops/s
+Perf.uid3              thrpt   25  4059824.283 ±  12977.707  ops/s
+Perf.uid3Sleep         thrpt   25  3939085.542 ±  27745.116  ops/s
+Perf.uid4              thrpt   25   500581.784 ±  27710.024  ops/s
